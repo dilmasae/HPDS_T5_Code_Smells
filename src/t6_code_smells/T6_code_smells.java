@@ -22,13 +22,12 @@ public class T6_code_smells {
     }
     
     static double replace_temp_with_query(double quantity, double itemPrice) {
-        double basePrice = quantity * itemPrice;
-        if (basePrice > 1000) {
-          return basePrice * 0.95;
-        }
-        else {
-          return basePrice * 0.98;
-        }
+        if (basePrice(quantity, itemPrice) > 1000) return basePrice(quantity, itemPrice) * 0.95;
+        return basePrice(quantity, itemPrice) * 0.98;
+    }
+    
+    static double basePrice(double quantity, double itemPrice) {
+        return quantity * itemPrice;
     }
     
     public static void main(String[] args) {
