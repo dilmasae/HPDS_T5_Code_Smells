@@ -21,6 +21,16 @@ public class T6_code_smells {
         return Math.random() < 0.5;
     }
     
+    static double replace_temp_with_query(double quantity, double itemPrice) {
+        double basePrice = quantity * itemPrice;
+        if (basePrice > 1000) {
+          return basePrice * 0.95;
+        }
+        else {
+          return basePrice * 0.98;
+        }
+    }
+    
     public static void main(String[] args) {
         System.out.println("Code Smells");    
     }
