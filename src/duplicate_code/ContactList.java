@@ -12,21 +12,20 @@ public class ContactList extends LinkedList<Person> {
         return this;
     }
     
-    public Person getPersonById(int id) {
-        for(Person person : this) {
-            if(person.getId() == id) return person;
-        }
-        return null;
+    public Person getPersonById(int id) throws Exception {
+        return get(getPositionById(id));
     }
     
-    public void deletePersonById(int id) {
-        for(Person person : this) {
-            if(person.getId() == id) {
-                this.remove(person);
-                break;
-            }
+    public void deletePersonById(int id) throws Exception {
+        remove(getPositionById(id));
+    }
+    
+    private Integer getPositionById(int id) throws Exception {
+        int size = this.size();
+        for(int i = 0; i < size; i++) {
+            if(get(i).getId() == id) return i;
         }
-        
+        throw new Exception("Person not found");
     }
     
 }
