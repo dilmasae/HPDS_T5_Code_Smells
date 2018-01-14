@@ -21,17 +21,18 @@ public class T6_code_smells {
         return Math.random() < 0.5;
     }
     
-    static String[] long_list_of_parameters(
-            String name1, String name2, String name3, String name4, String name5,
-            String name6, String name7, String name8, String name9) {
+    static String[] long_list_of_parameters(String... names) {
         
-        String[] array = new String[] {
-            name1, name2, name3, name4, name5, name6, name7, name8, name9};
+        int size = names.length;
+        String[] array = new String[size];
+        
+        System.arraycopy(names, 0, array, 0, size);
+        
         return array;
     }
     
     public static void main(String[] args) {
-        System.out.println("Code Smells");    
+        System.out.println("Code Smells");   
     }
     
 }
