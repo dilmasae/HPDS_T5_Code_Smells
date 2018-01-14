@@ -21,11 +21,7 @@ public class T6_code_smells {
         return Math.random() < 0.5;
     }
     
-    static double replace_temp_with_query(double quantity, double itemPrice) {
-        if (basePrice(quantity, itemPrice) > 1000) return basePrice(quantity, itemPrice) * 0.95;
-        return basePrice(quantity, itemPrice) * 0.98;
-    }
-    
+    // DEAD CODE AFTER DELETE wasInitialized method
     static double basePrice(double quantity, double itemPrice) {
         return quantity * itemPrice;
     }
